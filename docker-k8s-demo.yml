@@ -1,0 +1,22 @@
+appVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-k8s-demo-deployment
+  labels:
+    app: docker-k8s-demo
+spec:
+  replicas: 1
+  selector:
+    matchLables:
+      app: docker-k8s-demo
+  template:
+    metadata:
+      lables:
+        app: docker-k8s-demo
+    spec:
+      containers:
+      - name: docker-k8s-demo
+        image: ljdock/docker-demo-1
+        ports:
+        - containerPort: 8070
+
